@@ -21,7 +21,7 @@ database.connect((error) => {
 export const db = database;
 
 export class InterserverManager {
-    client: Client;
+    readonly client: Client;
     #cache: Collection<string, interserver> = new Collection<string, interserver>();;
     constructor(client: Client) {
         this.client = client;
