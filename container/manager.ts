@@ -26,6 +26,9 @@ export class InterserverManager {
     constructor(client: Client) {
         this.client = client;
     }
+    public get list() {
+        return this.#cache;
+    }
     public start() {
         this.fillCache();
         this.event();
@@ -72,6 +75,21 @@ export class InterserverManager {
             this.#cache.delete(channel.id);
             await query(`DELETE FROM interserver WHERE channel_id='${channel.id}'`);
             
+            resolve(data);
+        });
+    }
+    public async editFrequence({channel, frequence}: { channel: TextChannel, frequence: string }) {
+        return new Promise<interserver>(async(resolve, reject) => {
+            if (!this.isMatchingFrequence(frequence)) return reject(this.error('Error: There is no frequence matching this frequence', '001'));
+            if (!this.validChannelFrequence(channel, frequence)) return reject(this.error('Error: There is already a channel configured with this frequence', '002'));
+
+            const data = this.#cache.get(channel.id);
+            if (!data) return reject(this.error("Error: The channel isn't configured", '006'));
+
+            data.frequence = frequence;
+            this.#cache.set(channel.id, data);
+            await query(`UPDATE interserver SET frequence='${frequence}' WHERE channel_id='${channel.id}'`);
+
             resolve(data);
         });
     }
