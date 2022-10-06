@@ -1,4 +1,4 @@
-import { Client, Collection, TextChannel, WebhookClient } from "discord.js";
+import { ChannelType, Client, Collection, TextChannel, Webhook, WebhookClient } from "discord.js";
 import { config } from "dotenv";
 import { createConnection } from "mysql";
 import { interserver } from './interserver';
@@ -21,7 +21,7 @@ database.connect((error) => {
 
 export class InterserverManager {
     client: Client;
-    #cache: Collection<string, interserver>;
+    #cache: Collection<string, interserver> = new Collection<string, interserver>();;
     constructor(client: Client) {
         this.client = client;
     }
@@ -35,11 +35,7 @@ export class InterserverManager {
             if (frequence && !this.validChannelFrequence(channel, frequence)) return reject(this.error('Error: a frequence has been specified, but a channel in the server already has it', '002'));
             if (this.#cache.has(channel.id)) return reject(this.error('Error: The channel is already configured', '003'))
 
-            const webhook = await channel.createWebhook({
-                name: 'Interserver',
-                avatar: this.client.user?.avatarURL({ forceStatic: false }),
-                reason: 'Need it for an interserver feature'
-            });
+            const webhook = await this.createWebhook(channel);
 
             if (!webhook) return reject(this.error('Error: Webhook creation failure', '004'));
             let generated: string = '';
@@ -87,6 +83,15 @@ export class InterserverManager {
     private validChannelFrequence(channel: TextChannel, frequence: string) {
         const matches = this.#cache.filter((x) => x.guild_id === channel.guild.id && x.frequence === frequence);
         return matches.size === 0;
+    }
+    private createWebhook(channel: TextChannel) {
+        return new Promise<Webhook>(async(resolve) => {
+            resolve(await channel.createWebhook({
+                name: 'Interserver',
+                avatar: this.client.user?.avatarURL({ forceStatic: false }),
+                reason: 'Need it for an interserver feature'
+            }));
+        })
     }
     private async generateUniqueFrequence() {
         return new Promise<string>((resolve, reject) => {
@@ -174,5 +179,19 @@ export class InterserverManager {
                 }
             })
         });
+        this.client.on('webhookUpdate', async(channel) => {
+            const data = this.#cache.get(channel.id);
+            if (!data || channel.type !== ChannelType.GuildText) return;
+
+            const webhooks = await channel.fetchWebhooks();
+            if (!webhooks.find((x) => x.url === data.webhook)) {
+                const webhook = await this.createWebhook(channel);
+                if (webhook) {
+                    data.webhook = webhook.url;
+                    this.#cache.set(channel.id, data);
+                    await query(`UPDATE channel_id SET webhook='${webhook.url}' WHERE channel_id='${channel.id}'`);
+                }
+            }
+        })
     }
 }
