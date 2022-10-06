@@ -1,4 +1,4 @@
-import { Client, Collection } from "discord.js";
+import { Client, Collection, WebhookClient } from "discord.js";
 import { config } from "dotenv";
 import { createConnection } from "mysql";
 import { interserver } from './interserver';
@@ -37,10 +37,26 @@ export class InterserverManager {
         });
     }
     private async event() {
-        this.client.on('messageCreate', (message) => {
-            if (!message.guild || message.webhookId || message.author.bot) return;
+        this.client.on('messageCreate', async ({ guild, author, webhookId, channel, content, member, embeds, system }) => {
+            if (!guild || webhookId || author.bot || /<(@|@&|@#|@!)(\d+)>/i.test(content) || system) return;
 
+            const data = await query<{ frequence: string }>(`SELECT frequence FROM interserver WHERE channel_id='${channel.id}`);
+            if (data.length < 1) return;
 
-        })
+            const frequence = data[0].frequence;
+            const sendTo = await query<interserver>(`SELECT webhook FROM interserver WHERE frequence='${frequence}' AND NOT channel_id='${channel.id}'`);
+
+            sendTo.forEach((inter) => {
+                const webhook = new WebhookClient({ url: inter.webhook });
+                if (webhook) {
+                    webhook.send({
+                        content,
+                        embeds,
+                        username: member?.nickname ?? author.username,
+                        avatarURL: author.displayAvatarURL({ forceStatic: false })
+                    }).catch(() => {});
+                }
+            })
+        });
     }
 }
