@@ -15,7 +15,7 @@ export const database_informations = {
 };
 
 const database = createConnection(database_informations);
-database.connect((error) => {
+database.connect((error: string) => {
     throw error;
 });
 export const db = database;
