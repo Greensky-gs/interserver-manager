@@ -40,11 +40,11 @@ export class InterserverManager {
         this.client.on('messageCreate', async ({ guild, author, webhookId, channel, content, member, embeds, system }) => {
             if (!guild || webhookId || author.bot || /<(@|@&|@#|@!)(\d+)>/i.test(content) || system) return;
 
-            const data = await query<{ frequence: string }>(`SELECT frequence FROM interserver WHERE channel_id='${channel.id}`);
-            if (data.length < 1) return;
+            const data = this.#cache.get(channel.id);
+            if (!data) return;
 
-            const frequence = data[0].frequence;
-            const sendTo = await query<interserver>(`SELECT webhook FROM interserver WHERE frequence='${frequence}' AND NOT channel_id='${channel.id}'`);
+            const frequence = data.frequence;
+            const sendTo = this.#cache.filter((x) => x.channel_id !== channel.id && x.frequence === frequence);
 
             sendTo.forEach((inter) => {
                 const webhook = new WebhookClient({ url: inter.webhook });
