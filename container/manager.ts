@@ -18,6 +18,7 @@ const database = createConnection(database_informations);
 database.connect((error) => {
     throw error;
 });
+export const db = database;
 
 export class InterserverManager {
     client: Client;

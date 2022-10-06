@@ -1,14 +1,9 @@
 import { createConnection } from 'mysql';
-import { database_informations } from './manager';
-
-const database = createConnection(database_informations);
-database.connect((error: string) => {
-  if (error) throw error;
-});
+import { db }  from './manager';
 
 export function query<Req = any>(search: string) {
   return new Promise<Req[]>((resolve, reject) => {
-    database.query(search, (error: string, request: any[]) => {
+    db.query(search, (error: string, request: any[]) => {
       if (error) reject(error)
       else resolve(request);
     });
