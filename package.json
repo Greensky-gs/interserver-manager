@@ -5,7 +5,9 @@
   "author": "Greensky <david.hesliere@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^14.5.0"
+    "@types/mysql": "^2.15.21",
+    "discord.js": "^14.5.0",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {}
 }
