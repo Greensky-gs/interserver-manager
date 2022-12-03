@@ -2,7 +2,7 @@ import { ChannelType, Client, Collection, TextChannel, Webhook, WebhookClient } 
 import { WordGenerator as Generator } from "./utils/generator";
 import { Connection } from "mysql";
 
-type interserver = {
+export type interserver = {
     guild_id: string;
     channel_id: string;
     webhook: string;
