@@ -56,7 +56,7 @@
 
 "@types/mysql@^2.15.21":
   version "2.15.21"
-  resolved "https://registry.npmjs.org/@types/mysql/-/mysql-2.15.21.tgz"
+  resolved "https://registry.yarnpkg.com/@types/mysql/-/mysql-2.15.21.tgz#7516cba7f9d077f980100c85fd500c8210bd5e45"
   integrity sha512-NPotx5CVful7yB+qZbWtXL2fA4e7aEHkihHLjklc6ID8aq7bhguHgeIoC1EmSNTAuCgI6ZXrjt2ZSaXnYX0EUg==
   dependencies:
     "@types/node" "*"
@@ -75,7 +75,7 @@
 
 bignumber.js@9.0.0:
   version "9.0.0"
-  resolved "https://registry.npmjs.org/bignumber.js/-/bignumber.js-9.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-9.0.0.tgz#805880f84a329b5eac6e7cb6f8274b6d82bdf075"
   integrity sha512-t/OYhhJ2SD+YGBQcjY8GzzDHEk9f3nerxjtfa6tlMXfe7frs/WozhvCNoGvpM0P3bNf3Gq5ZRMlGr5f3r4/N8A==
 
 busboy@^1.6.0:
@@ -87,7 +87,7 @@ busboy@^1.6.0:
 
 core-util-is@~1.0.0:
   version "1.0.3"
-  resolved "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz"
+  resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
 discord-api-types@^0.37.10, discord-api-types@^0.37.3:
@@ -111,11 +111,6 @@ discord.js@^14.5.0:
     tslib "^2.4.0"
     undici "^5.10.0"
     ws "^8.9.0"
-
-dotenv@^16.0.3:
-  version "16.0.3"
-  resolved "https://registry.npmjs.org/dotenv/-/dotenv-16.0.3.tgz"
-  integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
 
 fast-deep-equal@^3.1.3:
   version "3.1.3"
@@ -143,7 +138,7 @@ inherits@^2.0.3, inherits@~2.0.3:
 
 isarray@~1.0.0:
   version "1.0.0"
-  resolved "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==
 
 lodash.snakecase@^4.1.1:
@@ -158,7 +153,7 @@ lodash.uniqwith@^4.5.0:
 
 mysql@^2.18.1:
   version "2.18.1"
-  resolved "https://registry.npmjs.org/mysql/-/mysql-2.18.1.tgz"
+  resolved "https://registry.yarnpkg.com/mysql/-/mysql-2.18.1.tgz#2254143855c5a8c73825e4522baf2ea021766717"
   integrity sha512-Bca+gk2YWmqp2Uf6k5NFEurwY/0td0cpebAucFpY/3jhrwrVGuxU2uQFCHjU19SJfje0yQvi+rVWdq78hR5lig==
   dependencies:
     bignumber.js "9.0.0"
@@ -173,12 +168,12 @@ peek-readable@^5.0.0:
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
-  resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
 readable-stream@2.3.7:
   version "2.3.7"
-  resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
   integrity sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==
   dependencies:
     core-util-is "~1.0.0"
@@ -207,7 +202,7 @@ readable-web-to-node-stream@^3.0.2:
 
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
-  resolved "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
   integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
 
 safe-buffer@~5.2.0:
@@ -217,7 +212,7 @@ safe-buffer@~5.2.0:
 
 sqlstring@2.3.1:
   version "2.3.1"
-  resolved "https://registry.npmjs.org/sqlstring/-/sqlstring-2.3.1.tgz"
+  resolved "https://registry.yarnpkg.com/sqlstring/-/sqlstring-2.3.1.tgz#475393ff9e91479aea62dcaf0ca3d14983a7fb40"
   integrity sha512-ooAzh/7dxIG5+uDik1z/Rd1vli0+38izZhGzSa34FwR7IbelPWCCKSNIl8jlL/F7ERvy8CB2jNeM1E9i9mXMAQ==
 
 streamsearch@^1.1.0:
@@ -234,7 +229,7 @@ string_decoder@^1.1.1:
 
 string_decoder@~1.1.1:
   version "1.1.1"
-  resolved "https://registry.npmjs.org/string_decoder/-/string_decoder-1.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
   integrity sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==
   dependencies:
     safe-buffer "~5.1.0"
@@ -260,10 +255,20 @@ ts-mixer@^6.0.1:
   resolved "https://registry.npmjs.org/ts-mixer/-/ts-mixer-6.0.1.tgz"
   integrity sha512-hvE+ZYXuINrx6Ei6D6hz+PTim0Uf++dYbK9FFifLNwQj+RwKquhQpn868yZsCtJYiclZF1u8l6WZxxKi+vv7Rg==
 
+tsc@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/tsc/-/tsc-2.0.4.tgz#5f6499146abea5dca4420b451fa4f2f9345238f5"
+  integrity sha512-fzoSieZI5KKJVBYGvwbVZs/J5za84f2lSTLPYf6AGiIf43tZ3GNrI1QzTLcjtyDDP4aLxd46RTZq1nQxe7+k5Q==
+
 tslib@^2.4.0:
   version "2.4.0"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
+
+typescript@^4.9.3:
+  version "4.9.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.3.tgz#3aea307c1746b8c384435d8ac36b8a2e580d85db"
+  integrity sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==
 
 undici@^5.10.0:
   version "5.11.0"
