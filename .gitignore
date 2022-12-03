@@ -1,4 +1,4 @@
 node_modules/
-.env
-container/*.js
-container/test.*
+dist/
+test/
+.vscode/
