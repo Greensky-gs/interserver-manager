@@ -15,5 +15,5 @@ Install it using `npm install interserver-manager`
 
 See how to use the manager :
 
-* [Doc](./doc.md)
+* [Doc](https://github.com/Greensky-gs/interserver-manager/blob/main/doc.md)
 * [Support server](https://discord.gg/fHyN5w84g6)
