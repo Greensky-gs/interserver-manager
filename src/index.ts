@@ -161,6 +161,7 @@ export class InterserverManager {
         })
     }
     private async fillCache() {
+        await this.query(`CREATE TABLE IF NOT EXISTS interserver ( guild_id VARCHAR(255) NOT NULL, channel_id VARCHAR(255) NOT NULL, frequence VARCHAR(255) NOT NULL, webhook VARCHAR(255) NOT NULL )`);
         const data = await this.query<interserver>(`SELECT * FROM interserver`);
 
         this.cache.clear();
